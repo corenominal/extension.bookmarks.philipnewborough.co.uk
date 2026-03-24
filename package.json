@@ -1,0 +1,10 @@
+{
+  "name": "extension-bookmarks",
+  "version": "1.0.0",
+  "description": "Bookmarks browser extension",
+  "scripts": {
+    "fetch-vendors": "node scripts/fetch-vendors.js",
+    "build": "echo \"No build step configured\""
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

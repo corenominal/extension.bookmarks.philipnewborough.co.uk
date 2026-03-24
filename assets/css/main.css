@@ -1,0 +1,18 @@
+body {
+    position: relative;
+    min-width: 600px;
+    padding: 20px 40px;
+}
+
+.tags-list,
+.existing-tags-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tags-list li,
+.existing-tags-list li {
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 8px;
+}

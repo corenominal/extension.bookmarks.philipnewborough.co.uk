@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icon-16.png">
+
+    <title>PN Bookmarker</title>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- Vendor JS -->
+    <script defer="" src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Local testing shim (only used when chrome.storage is unavailable) -->
+    <script src="/assets/js/storage-shim.js"></script>
+    <!-- JS -->
+    <script defer="" src="/assets/js/main.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row flex-row-reverse pb-3 mb-5">
+            <div class="col-md-4 text-md-end mb-4">
+                <nav>
+                    <div class="btn-group">
+                        <a target="_blank" href="https://bookmarks.philipnewborough.co.uk/" class="btn  btn-outline-primary nav-settings"><i class="bi bi-house-fill"></i><span class="visually-hidden"> Home</span></a>
+                        <button id="btn-settings" class="btn  btn-outline-primary nav-settings"><i class="bi bi-gear-fill"></i><span class="visually-hidden"> Settings</span></button>
+                        <button id="btn-close" class="btn  btn-outline-primary"><i class="bi bi-x-circle-fill"></i> <span class="visually-hidden"> Close</span></button>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-md-8">
+                <h1 class="h3"><i class="bi bi-bookmark-heart-fill text-primary"></i> Philip Newborough</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bookmarkform">
+                    <h2 class="h5 mb-4">Create a new bookmark</h2>
+                
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="url" class="form-label">URL</label>
+                        <input type="text" class="form-control" id="url" placeholder="https://example.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Notes <small class="text-muted">(Markdown compatible)</small></label>
+                        <textarea class="form-control" id="notes" rows="3"></textarea>
+                    </div>
+
+                    <form id="tags-form">
+                        <div class="input-group mb-2">
+                            <input id="tags-input" type="text" class="form-control input" placeholder="Enter comma separated tags here ..." autocomplete="off" list="datalist-tags">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="bi bi-plus-circle"></i>
+                            </button>
+                        </div>
+                        <small class="form-text text-muted mb-3">Tags separated by commas. <span id="existing-tags-trigger"><a href="#" class="text-primary" data-bs-toggle="collapse" data-bs-target="#collapseExistingTags" aria-expanded="false" aria-controls="collapseExistingTags">Existing tags</a>.</span></small>
+                        <datalist id="datalist-tags"></datalist>
+                    </form>
+
+                    <ul id="tags-list" class="tags-list py-3"></ul>
+
+                    <div class="collapse" id="collapseExistingTags">
+                        <div class="card card-body mt-2 mb-2">
+                            <p><strong>Existing tags:</strong></p>
+                            <ul id="existing-tags-list" class="existing-tags-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button id="btn-save-bookmark" class="btn btn-primary"><i class="bi bi-floppy"></i> Save Bookmark</button>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="private">
+                                <label class="form-check-label" for="private">Private</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="dashboard">
+                                <label class="form-check-label" for="dashboard">Dashboard</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="settings" class="d-none">
+                    <h2 class="h5">Set the API Key</h2>
+                    <p class="mb-4">See <a target="_blank" href="https://auth.philipnewborough.co.uk/admin/apikeys">API Keys <i class="bi bi-box-arrow-up-right"></i></a> to get a key.</p>
+
+                    <div class="mb-3">
+                        <label for="user_uuid" class="form-label">User UUID</label>
+                        <input type="text" class="form-control" id="user_uuid" value="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="apikey" class="form-label">API Key</label>
+                        <input type="text" class="form-control" id="apikey" value="">
+                    </div>
+
+                    <button id="btn-save-apikey" class="btn btn-primary"><i class="bi bi-floppy"></i> Save</button>
+                </div>
+
+            </div> <!-- .col-md-12 -->
+        </div> <!-- .row -->
+
+    </div> <!-- .container -->
+
+</body>
+</html>
